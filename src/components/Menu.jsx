@@ -2,7 +2,11 @@ import { useState } from "react";
 import Item from "./Item";
 import OrderModal from "./OrderModal";
 
-function Menu({ menu, cart, setCart }) {
+import { useMeun } from "../context/menuContext";
+
+function Menu() {
+  const { menu } = useMeun()
+
   const [modalOn, setModalOn] = useState(false);
   const [modalMenu, setModalMenu] = useState(null);
   if (!menu)
@@ -38,8 +42,6 @@ function Menu({ menu, cart, setCart }) {
         <OrderModal
           modalMenu={modalMenu}
           setModalOn={setModalOn}
-          cart={cart}
-          setCart={setCart}
         />
       ) : null}
     </>
